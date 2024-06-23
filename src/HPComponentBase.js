@@ -1,4 +1,4 @@
-/*             HPItemBase.js              */
+/*             HPComponentBase.js              */
 /*          Author: Martin Holmes.        */
 
 /** This file is part of the HotPotatoes
@@ -9,21 +9,19 @@
   * The code is licensed under MPL.
   */
 
-import { HPComponentBase } from "./HPComponentBase.js";
-
-/** @class HPItemBase
+/** @class HPComponentBase
   * @description This is the base abstract class from 
-  *              which all question/item types derive.
-  *              It descends from the HPComponentBase class.
+  *              which all components, including titles,
+  *              instructions, and question/item types derive.
   *              It provides a set of properties and
   *              methods expected to be implemented in 
   *              descendant classes. 
   */
-export class HPItemBase extends HPComponentBase {
-    constructor (itemType /*{string}*/){
-        this.itemType = itemType;
+export class HPComponentBase {
+    constructor (componentType /*{string}*/){
+        this.componentType = componentType;
     } 
-/** @memberOf HPItemBase
+/** @memberOf HPComponentBase
   * @method readFromSource
   * @return {boolean} true if the read succeeded in populating
   *         the item; false if something went wrong.
@@ -33,7 +31,7 @@ export class HPItemBase extends HPComponentBase {
     readFromSource(source /* HTMLElement I think */){
         console.log('The readFromSource method needs to be implemented by a descendant class.')
     }
-/** @memberOf HPItemBase
+/** @memberOf HPComponentBase
   * @method renderForView
   * @return {boolean} true if the write succeeded; false if 
   *         something went wrong.
@@ -45,7 +43,7 @@ export class HPItemBase extends HPComponentBase {
     renderForView(target /* HTMLElement I think */){
         console.log('The renderForView method needs to be implemented by a descendant class.')
     }
-/** @memberOf HPItemBase
+/** @memberOf HPComponentBase
   * @method renderForEdit
   * @return {boolean} true if the write succeeded; false if 
   *         something went wrong.
